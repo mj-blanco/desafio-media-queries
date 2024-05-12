@@ -1,0 +1,203 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Ubuntu Sans", sans-serif;
+}
+
+body {
+    display: grid;
+    background-color: black;
+    background: linear-gradient (to right, #3e3f3f, #535353);
+    color: #b1b3b3;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 5fr 1fr;
+    grid-template-areas: 
+    "nav"
+    "filter"
+    "main"
+    "footer";
+}
+
+nav {
+    grid-area: nav;
+    background-color: #353636;
+    padding: 0.3em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .brand-container {
+        display: flex;
+        align-items: center;
+        img {
+            width: 17%;
+            padding-top: 0.3em;
+        }
+        .text-container {
+            display: flex;
+            flex-direction: column;
+            .brand-name {
+                font-size: 1.7em;
+                color: #ffffff;
+                font-weight: 500;
+            }
+            .brand-sub-title {
+                font-family: "Exo", sans-serif;
+                font-size: 1em;
+            }
+        }        
+    }
+    i {
+        font-size: 1.5em;
+        padding: 0.5em;
+    }
+    .menu-container {
+        display: none;
+    }
+}
+
+.filter-container {
+    grid-area: filter;
+    border: 0.5px solid #b1b3b3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4em;
+    padding: 1em;
+    select { 
+        width: 100%;
+        color: #b1b3b3;
+        background-color: black;
+    }
+}
+
+main {
+    grid-area: main;
+    .multi-cards-container {
+        display: none;
+    }
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-bottom: 0.5px solid #b1b3b3;
+    gap: 1em;
+    padding-bottom: 1.5em;
+
+    img {
+        width: 96%;
+        padding-top: 3em;
+    }
+
+    p {
+        font-size: 0.9em;
+    }
+
+    .button {
+        border: 0.5px solid #b1b3b3;
+        background-color: #3e3f3f;
+        padding: 0.5em;
+    }
+}
+
+.counter {
+    display: flex;
+    justify-content: center;
+    padding: 0.5rem;
+    .paginator {
+        padding: 1em;
+    }
+}
+
+footer {
+    grid-area: footer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #353636;
+    border: 0.5px solid #b1b3b3;
+    padding: 0.5rem;
+    i {
+        font-size: 1.2em;
+    }
+}
+
+@media (min-width: 576px) {
+    body {
+        grid-template-columns: 1fr 5fr;
+        grid-template-rows: 1fr 5fr 1fr;
+        grid-template-areas: 
+        "nav filter"
+        "nav main"
+        "footer main";
+    }
+    nav {
+        flex-direction: column;
+        align-items: center;
+        justify-content: start;
+        gap: 14em;
+        border: 0.5px solid #b1b3b3;
+        .brand-container {
+            justify-content: center;
+            img {
+                width: 23%;
+                padding-top: 2em;
+            }
+            .text-container {
+                .brand-name {
+                    font-size: 2em;
+                    padding-top: 1.6em;
+                }
+                .brand-sub-title {
+                    font-size: 1.5em;
+                }
+            }        
+        }
+        .fa-solid {
+            display: none;
+        }
+        .menu-container {
+            display: flex;
+            flex-direction: column;
+            gap: 2em;
+            font-size: 1.7em;
+        }                                                                                      
+    }
+    .filter-container {
+        border: none;
+        border-bottom: 0.5px solid #b1b3b3;
+        justify-content: center;
+        gap: 0.5rem;
+        font-size: 1.7em;
+        select {
+            font-size: 1em;
+            width: 100%;
+        }
+    }
+    main {
+        .one-card-container {
+            display: none;
+        }
+        .multi-cards-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+        }
+        .img-1 {
+            transform: scaleX(-1);
+        }
+    }
+    footer {
+        border: none;
+        border-right: 0.5px solid #b1b3b3;
+        font-size: 1.6em;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        i {
+            font-size: 1.2em;
+        }
+    }
+}
